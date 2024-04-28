@@ -1,0 +1,427 @@
+/* Reset default styles */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Body styles */
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+.sidebar .logo img {
+  width: 130px;
+}
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+}
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #b3b3b3;
+}
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+.sidebar .policies ul {
+  list-style: none;
+}
+.sidebar .policies ul li {
+  padding-bottom: 5px;
+}
+.sidebar .policies ul li a {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 10px;
+}
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+/* Main container styles */
+.main-container {
+  margin-left: 245px;
+  margin-bottom: 100px;
+}
+
+/* Topbar styles */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  padding: 14px 30px;
+}
+.topbar .prev-next-buttons button {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  font-size: 18px;
+  border: 0px;
+  background-color: #090909;
+  margin-right: 10px;
+}
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+}
+.topbar .navbar ul {
+  list-style: none;
+}
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 0px 8px;
+  width: 70px;
+}
+.topbar .navbar ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #ffffff;
+  font-size: 15px;
+}
+.topbar .navbar ul li.divider {
+  color: #ffffff;
+  font-size: 26px;
+  margin: 0px 20px;
+  width: auto;
+}
+.topbar .navbar button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #f2f2f2;
+}
+
+/* Spotify playlists styles */
+.spotify-playlists {
+  padding: 20px 40px;
+}
+.spotify-playlists h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.spotify-playlists .list {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+.spotify-playlists .list .item {
+  min-width: 140px;
+  width: 160px;
+  padding: 15px;
+  background-color: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover {
+  background-color: #252525;
+}
+.spotify-playlists .list .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.spotify-playlists .list .item .play {
+  position: relative;
+}
+.spotify-playlists .list .item .play .fa {
+  position: absolute;
+  right: 10px;
+  top: -60px;
+  padding: 18px;
+  background-color: #1db954;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.spotify-playlists .list .item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spotify-playlists .list .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+.spotify-playlists hr {
+  margin: 70px 0px 0px;
+  border-color: #636363;
+}
+
+/* Preview styles */
+.preview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #ae2896, #509bf5);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.preview h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.preview p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.preview button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+#searchBar {
+  display: none;
+  position: absolute;
+  width: 100%;
+  bottom: 89%;
+  left: 0;
+  background-color: black; /* Dark theme for the bar */
+  padding: 10px 20px; /* Padding for aesthetic spacing */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Subtle shadow for depth */
+}
+
+#searchBar.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchBar #searchInput {
+  width: 60%; /* Percentage width to maintain responsiveness */
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 30px; /* Rounded corners */
+  border: none;
+  outline: none;
+  color: white; /* Text color */
+  background-color: #333; /* Darker element background */
+}
+
+#searchBar #searchInput::placeholder {
+  color: #ddd; /* Lighter placeholder text */
+}
+
+
+
+
+
+
+
+
+
+
+$primary-green: #5cd269; 
+$primary-white: rgba(255,255,255,.8); 
+$body-font: 'Roboto', sans-serif;
+
+body { 
+background: #0a0a0a; 
+font-family: $body-font; 
+font-weight: 100; 
+color: $primary-white; 
+}
+
+a { 
+color: $primary-white; 
+}
+
+.search-bar{ 
+  background: #000; 
+nav.tab-bar { 
+  background: #222;
+  position: absolute;
+  top: 0; 
+  left: 67%; 
+  }
+}
+p { 
+  font-weight: 100;
+  letter-spacing: .8px; 
+}
+
+.page-container { 
+  width: 100%; 
+  height: 100%; 
+  max-height: 1200px; 
+  max-width: 1000px; 
+}
+
+.iphone-wrapper { 
+  height: 580px; 
+  width: 350px; 
+  margin: 0 auto; 
+  border: 1px #222 solid; 
+  overflow: hidden; 
+}
+
+.search-canvas, 
+.content-canvas {
+  height: 100%; 
+  float: left; 
+}
+
+.search-canvas { 
+  width: 95%; 
+  display: block;
+  position: relative; 
+  top: -20; 
+  &::after { 
+  content: "";
+  background: url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/QM8SLOCJ8M.jpg');
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  }
+}
+
+ul { 
+margin: 0; 
+  li { 
+    list-style: none; 
+  }
+}
+
+ul.side-left-menu { 
+  li { 
+    padding: 15px 20px;
+    font-weight: 300; 
+    img, i { 
+      margin-right: 15px;
+      opacity: .4;
+    }
+  }
+}
+
+li.voice-search { 
+  border-bottom: 1px solid $primary-green; 
+  margin-left: 20px; 
+  .fa { 
+    margin-right: 10px; 
+  }
+  input { 
+    background: rgba(255,255,255, .8);
+  }
+}
+
+.content-canvas { 
+  position: relative; 
+  top: 0; 
+  left: 0; 
+  width: 5%; 
+  background: #222;
+  padding: 0 10px; 
+}
+#searchBar {
+  display: none;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+#searchBar.active {
+  display: block;
+}
+
+/* Add this to your existing CSS */
+
+
+
+#searchInput {
+  color: #fff; /* Text color */
+  background-color: #282828; /* Background color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  width: 300px; /* Set width */
+  border-radius: 20px; /* Add border-radius for rounded corners */
+  font-size: 16px; /* Adjust font size */
+}
+
