@@ -411,38 +411,11 @@ li.voice-search {
 
 
 
-  .navigation-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
 
-.navigation-bottom ul {
-  list-style: none;
-  display: flex;
-}
 
-.navigation-bottom ul li {
-  margin: 0 10px;
-}
 
-.navigation-bottom ul li a {
-  color: #b3b3b3;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
 
-.navigation-bottom ul li a:hover,
-.navigation-bottom ul li a:active,
-.navigation-bottom ul li a:focus {
-  color: #ffffff;
-}
+
 }
 
 #searchBar.active {
@@ -474,7 +447,7 @@ li.voice-search {
   background-color: #000;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 30px 0;
 }
 
 .navigation-bottom ul {
@@ -483,14 +456,14 @@ li.voice-search {
 }
 
 .navigation-bottom ul li {
-  margin: 0 10px;
+  margin: 0 35px;
 }
 
 .navigation-bottom ul li a {
   color: #b3b3b3;
   text-decoration: none;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 25px;
 }
 
 .navigation-bottom ul li a:hover,
