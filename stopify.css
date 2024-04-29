@@ -16,12 +16,12 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 196px;
+  width: 0px;
   background-color: #000000;
-  padding: 24px;
+  padding: 1px;
 }
 .sidebar .logo img {
-  width: 130px;
+  width: 100px;
 }
 .sidebar .navigation ul {
   list-style: none;
@@ -151,7 +151,7 @@ body {
 
 /* Spotify playlists styles */
 .spotify-playlists {
-  padding: 20px 40px;
+  padding: 0px 0px;
 }
 .spotify-playlists h2 {
   color: #ffffff;
@@ -161,6 +161,7 @@ body {
 .spotify-playlists .list {
   display: flex;
   gap: 20px;
+  overflow: hidden;
 }
 .spotify-playlists .list .item {
   min-width: 140px;
@@ -498,5 +499,3 @@ li.voice-search {
 .navigation-bottom ul li a:focus {
   color: #ffffff;
 }
-
-
