@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -83,8 +83,12 @@
         <button type="button" class="fa fas fa-chevron-right"></button>
       </div>
       <div class="navbar">
-
         <a href="https://www.instagram.com/ash_him__?utm_source=qr&igsh=MjVvcmNnazgweWdo"><button type="button">####iM</button></a>
+		        <li>
+           <button class="shuffleButton" onclick="shufflePlaylist()">
+            <img src="file:///C:/Users/HASH/Downloads/3005162.webp"  width="18 ""alt="Shuffle Icon" />
+          </button>
+        </li>
       </div>
     </div>
 	
@@ -310,6 +314,9 @@
     var searchInput = document.getElementById('searchInput');
     var items = document.querySelectorAll('.item');
     var audioPlayer = document.getElementById('audioPlayer');
+	var shuffleButton = document.getElementById('shuffleButton');
+    var shuffledPlaylist = [];
+    var currentIndex = 0;
 
     searchIcon.addEventListener('click', function() {
       searchBar.classList.toggle('active');
@@ -371,7 +378,56 @@
     });
 	
 	
-	
+	    // Shuffle playlist
+    function shufflePlaylist() {
+      shuffledPlaylist = shuffle(Array.from(items));
+      currentIndex = 0; // Reset current index
+      playNextShuffledSong();
+    }
+
+    // Play the next shuffled song
+    function playNextShuffledSong() {
+      if (shuffledPlaylist.length > 0) {
+        if (currentIndex < shuffledPlaylist.length) {
+          audioPlayer.src = shuffledPlaylist[currentIndex].getAttribute('data-src');
+          audioPlayer.play();
+          currentIndex++;
+        } else {
+          // Playlist has ended, stop playing
+          audioPlayer.pause();
+        }
+      }
+    }
+
+    // Shuffle algorithm
+    function shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    // Initialize playlist on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      shufflePlaylist(); // Initial shuffle
+    });
+
+    // Play the next shuffled song when current song ends
+    audioPlayer.addEventListener('ended', function() {
+      playNextShuffledSong();
+    });
 	
 	
 	
