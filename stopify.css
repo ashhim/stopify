@@ -85,10 +85,11 @@ body {
 
 /* Topbar styles */
 .topbar {
+
   display: flex;
   justify-content: space-between;
   background-color: #101010;
-  padding: 14px 30px;
+  padding: 14px 5px;
 }
 .topbar .prev-next-buttons button {
   color: #7a7a7a;
@@ -134,15 +135,15 @@ body {
 }
 .topbar .navbar button {
 
-  top: 2%;
-  right: 2%;
+  top: 0;
+  right: 0;
   background-color: #ffffff;
   color: #000000;
   font-size: 18px;
   font-weight: bold;
-  padding: 12px 28px;
+  padding: 12px 25px;
   border: 0px;
-  border-radius: 50px;
+  border-radius: 55px;
   cursor: pointer;
   margin-left: 20px;
 }
@@ -153,7 +154,7 @@ body {
 }
 
 /* Spotify playlists styles */
-.spotify-playlists {
+.spotify-playlists {	
   padding: 0px 0px;
 }
 .spotify-playlists h2 {
