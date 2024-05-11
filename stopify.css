@@ -447,7 +447,7 @@ li.voice-search {
   background-color: #000;
   display: flex;
   justify-content: space-around;
-  padding: 30px 0;
+  padding: 1px 0;
 }
 
 .navigation-bottom ul {
@@ -456,7 +456,7 @@ li.voice-search {
 }
 
 .navigation-bottom ul li {
-  margin: 0 35px;
+  margin: 0 1px;
 }
 
 .navigation-bottom ul li a {
