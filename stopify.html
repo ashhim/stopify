@@ -9,18 +9,17 @@
   <link rel="stylesheet" href="stopify.css">
   <style>
     #audioPlayer {
-  display: none;
-  color: white;
-  position: fixed;
-  width: 100%;
-  position: fixed;
-  bottom: 7%;
-  left: 0;
-  right: 0;
-  align-items: center;
-  justify-content: space-between;
-  padding:  1 px; /* Add padding for better appearance */
-  box-sizing: border-box; /* Ensure padding is included in the width */
+      display: none;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 7%;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1px; /* Add padding for better appearance */
+      box-sizing: border-box; /* Ensure padding is included in the width */
     }
 
     audio::-webkit-media-controls-panel {
@@ -32,6 +31,16 @@
     audio::-webkit-media-controls-volume-slider,
     audio::-webkit-media-controls-timeline {
       filter: invert(1);
+    }
+
+    .like {
+      cursor: pointer;
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .liked {
+      color: red;
     }
   </style>
 </head>
@@ -65,559 +74,570 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="likedsongs.html">
             <span class="fa fas fa-heart"></span>
             <span>Liked Songs</span>
           </a>
         </li>
       </ul>
     </div>
-
-
   </div>
 
   <div class="main-container">
     <div class="topbar">
       <div class="prev-next-buttons">
-
       </div>
       <div class="navbar">
         <a href="https://www.instagram.com/ash_him__?utm_source=qr&igsh=MjVvcmNnazgweWdo"><button type="button">####iM</button></a>
-		        <li>
-           <button class="shuffleButton" onclick="shufflePlaylist()">
-            <img src="3005162.webp"  width="18 ""alt="Shuffle Icon" />
+        <li>
+          <button class="shuffleButton" onclick="shufflePlaylist()">
+            <img src="3005162.webp" width="18" alt="Shuffle Icon" />
           </button>
         </li>
       </div>
     </div>
-	
-	
-	
+
     <div class="spotify-playlists">
       <div id="searchBar">
         <input type="text" id="searchInput" oninput="search()" placeholder="What do you want to play?">
       </div>
-	  <br>
+      <br>
       <h2>Stopify Playlists</h2>
       <div class="list">
 
 
 
-
-  <div class="playlist-container">
-  <div class="row">	
-
+        <div class="playlist-container">
+          <div class="row">
 
 
 
 <br>
-<div class="item" data-src="stopify playlist/Adholokam.mp3">
-<img src="spotify playlist img/Adholokam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
+<div class="item"
+     data-src="stopify playlist/Adholokam.mp3"
+     data-title="Adholokam"
+     data-artist="Aavesham"
+     data-image="spotify playlist img/Adholokam.jpeg">
+    <img src="spotify playlist img/Adholokam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Adholokam<br><br><br>Aavesham</h4>
 </div>
-<h4>Adholokam<br>
+
 <br>
-<br>Aavesham</h4>
+<div class="item"
+     data-src="stopify playlist/Another Love.mp3"
+     data-title="Another Love"
+     data-artist="Tom Odell"
+     data-image="spotify playlist img/Another Love.jpeg">
+    <img src="spotify playlist img/Another Love.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Another Love<br><br><br>Tom Odell</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Another Love.mp3">
-<img src="spotify playlist img/Another Love.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Another Love<br>
 <br>
-<br>Tom Odell</h4>
+<div class="item"
+     data-src="stopify playlist/Arjunar Villu.mp3"
+     data-title="Arjunar Villu"
+     data-artist="Gilli"
+     data-image="spotify playlist img/Arjunar Villu.jpeg">
+    <img src="spotify playlist img/Arjunar Villu.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Arjunar Villu<br><br><br>Gilli</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Arjunar Villu.mp3">
-<img src="spotify playlist img/Arjunar Villu.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Arjunar Villu<br>
 <br>
-<br>Gilli</h4>
+<div class="item"
+     data-src="stopify playlist/Armadham.mp3"
+     data-title="Armadham"
+     data-artist="Aavesham"
+     data-image="spotify playlist img/Armadham.jpeg">
+    <img src="spotify playlist img/Armadham.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Armadham<br><br><br>Aavesham</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Armadham.mp3">
-<img src="spotify playlist img/Armadham.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Armadham<br>
 <br>
-<br>Aavesham</h4>
+<div class="item"
+     data-src="stopify playlist/Athmave Poo.mp3"
+     data-title="Athmave Poo"
+     data-artist="Romancham"
+     data-image="spotify playlist img/Athmave Poo.jpeg">
+    <img src="spotify playlist img/Athmave Poo.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Athmave Poo<br><br><br>Romancham</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Athmave Poo.mp3">
-<img src="spotify playlist img/Athmave Poo.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Athmave Poo<br>
 <br>
-<br>Romancham</h4>
+<div class="item"
+     data-src="stopify playlist/Ballaatha Jaathi.mp3"
+     data-title="Ballaatha Jaathi"
+     data-artist="Dabzee NJ Baby Jaen"
+     data-image="spotify playlist img/Ballaatha Jaathi.jpeg">
+    <img src="spotify playlist img/Ballaatha Jaathi.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Ballaatha Jaathi<br><br><br>Dabzee NJ Baby Jaen</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Ballaatha Jaathi.mp3">
-<img src="spotify playlist img/Ballaatha Jaathi.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Ballaatha Jaathi<br>
 <br>
-<br>Dabzee NJ Baby Jaen</h4>
+<div class="item"
+     data-src="stopify playlist/Daylight.mp3"
+     data-title="Daylight"
+     data-artist="David Kushner"
+     data-image="spotify playlist img/Daylight.jpeg">
+    <img src="spotify playlist img/Daylight.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Daylight<br><br><br>David Kushner</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Daylight.mp3">
-<img src="spotify playlist img/Daylight.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Daylight<br>
 <br>
-<br>David Kushner</h4>
+<div class="item"
+     data-src="stopify playlist/Dua.mp3"
+     data-title="Dua"
+     data-artist="Sulaikha Manzil"
+     data-image="spotify playlist img/Dua.jpeg">
+    <img src="spotify playlist img/Dua.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Dua<br><br><br>Sulaikha Manzil</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Dua.mp3">
-<img src="spotify playlist img/Dua.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Dua<br>
 <br>
-<br>Sulaikha Manzil</h4>
+<div class="item"
+     data-src="stopify playlist/Ee Shishirakaalam.mp3"
+     data-title="Ee Shishirakaalam"
+     data-artist="Sulaikha Manzil"
+     data-image="spotify playlist img/Ee Shishirakaalam.jpeg">
+    <img src="spotify playlist img/Ee Shishirakaalam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Ee Shishirakaalam<br><br><br>Sulaikha Manzil</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Ee Shishirakaalam.mp3">
-<img src="spotify playlist img/Ee Shishirakaalam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Ee Shishirakaalam<br>
 <br>
-<br>Sulaikha Manzil</h4>
+<div class="item"
+     data-src="stopify playlist/Ethra Naal.mp3"
+     data-title="Ethra Naal"
+     data-artist=""
+     data-image="spotify playlist img/Ethra Naal.jpeg">
+    <img src="spotify playlist img/Ethra Naal.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Ethra Naal<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Ethra Naal.mp3">
-<img src="spotify playlist img/Ethra Naal.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Ethra Naal<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Galatta.mp3"
+     data-title="Galatta"
+     data-artist="Aavesham"
+     data-image="spotify playlist img/Galatta.jpeg">
+    <img src="spotify playlist img/Galatta.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Galatta<br><br><br>Aavesham</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Galatta.mp3">
-<img src="spotify playlist img/Galatta.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Galatta<br>
 <br>
-<br>Aavesham</h4>
+<div class="item"
+     data-src="stopify playlist/Haalaake Marunne.mp3"
+     data-title="Haalaake Marunne"
+     data-artist="Sulaikha Manzil"
+     data-image="spotify playlist img/Haalaake Marunne.jpeg">
+    <img src="spotify playlist img/Haalaake Marunne.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Haalaake Marunne<br><br><br>Sulaikha Manzil</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Haalaake Marunne.mp3">
-<img src="spotify playlist img/Haalaake Marunne.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Haalaake Marunne<br>
 <br>
-<br>Sulaikha Manzil</h4>
+<div class="item"
+     data-src="stopify playlist/Husn.mp3"
+     data-title="Husn"
+     data-artist=""
+     data-image="spotify playlist img/Husn.jpeg">
+    <img src="spotify playlist img/Husn.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Husn<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Husn.mp3">
-<img src="spotify playlist img/Husn.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Husn<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Idhuvum Kadandhu Pogum.mp3"
+     data-title="Idhuvum Kadandhu Pogum"
+     data-artist=""
+     data-image="spotify playlist img/Idhuvum Kadandhu Pogum.jpeg">
+    <img src="spotify playlist img/Idhuvum Kadandhu Pogum.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Idhuvum Kadandhu Pogum<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Idhuvum Kadandhu Pogum.mp3">
-<img src="spotify playlist img/Idhuvum Kadandhu Pogum.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Idhuvum Kadandhu Pogum<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Illuminati.mp3"
+     data-title="Illuminati"
+     data-artist="Aavesham"
+     data-image="spotify playlist img/Illuminati.jpeg">
+    <img src="spotify playlist img/Illuminati.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Illuminati<br><br><br>Aavesham</h4>
 </div>
 
-
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Illuminati.mp3">
-<img src="spotify playlist img/Illuminati.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Illuminati<br>
 <br>
-<br>Aavesham</h4>
+<div class="item"
+     data-src="stopify playlist/Ithale Nee.mp3"
+     data-title="Ithale Nee"
+     data-artist=""
+     data-image="spotify playlist img/Ithale Nee.jpeg">
+    <img src="spotify playlist img/Ithale Nee.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Ithale Nee<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Ithale Nee.mp3">
-<img src="spotify playlist img/Ithale Nee.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Ithale Nee<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Jaada.mp3"
+     data-title="Jaada"
+     data-artist="Aavesham"
+     data-image="spotify playlist img/Jaada.jpeg">
+    <img src="spotify playlist img/Jaada.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Jaada<br><br><br>Aavesham</h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Jaada.mp3">
-<img src="spotify playlist img/Jaada.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Jaada<br>
 <br>
-<br>Aavesham</h4>
+<div class="item"
+     data-src="stopify playlist/Jeevithagaadhakale.mp3"
+     data-title="Jeevithagaadhakale"
+     data-artist=""
+     data-image="spotify playlist img/Jeevithagaadhakale.jpeg">
+    <img src="spotify playlist img/Jeevithagaadhakale.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Jeevithagaadhakale<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  
-	  <br>
-<div class="item" data-src="stopify playlist/Jeevithagaadhakale.mp3">
-<img src="spotify playlist img/Jeevithagaadhakale.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Jeevithagaadhakale<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Joo-Roo-Ba.mp3"
+     data-title="Joo-Roo-Ba"
+     data-artist=""
+     data-image="spotify playlist img/Joo-Roo-Ba.jpeg">
+    <img src="spotify playlist img/Joo-Roo-Ba.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Joo-Roo-Ba<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/Joo-Roo-Ba.mp3">
-<img src="spotify playlist img/Joo-Roo-Ba.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Joo-Roo-Ba<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/KAAYI.mp3"
+     data-title="KAAYI"
+     data-artist=""
+     data-image="spotify playlist img/KAAYI.jpeg">
+    <img src="spotify playlist img/KAAYI.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>KAAYI<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  <br>
-<div class="item" data-src="stopify playlist/KAAYI.mp3">
-<img src="spotify playlist img/KAAYI.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>KAAYI<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kaadhal En Kaviye.mp3"
+     data-title="Kaadhal En Kaviye"
+     data-artist=""
+     data-image="spotify playlist img/Kaadhal En Kaviye.jpeg">
+    <img src="spotify playlist img/Kaadhal En Kaviye.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kaadhal En Kaviye<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Kaadhal En Kaviye.mp3">
-<img src="spotify playlist img/Kaadhal En Kaviye.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kaadhal En Kaviye<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kaanan Thonnununde.mp3"
+     data-title="Kaanan Thonnununde"
+     data-artist=""
+     data-image="spotify playlist img/Kaanan Thonnununde.jpeg">
+    <img src="spotify playlist img/Kaanan Thonnununde.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kaanan Thonnununde<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Kaanan Thonnununde.mp3">
-<img src="spotify playlist img/Kaanan Thonnununde.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kaanan Thonnununde<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kalapakkaara.mp3"
+     data-title="Kalapakkaara"
+     data-artist=""
+     data-image="spotify playlist img/Kalapakkaara.jpeg">
+    <img src="spotify playlist img/Kalapakkaara.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kalapakkaara<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Kalapakkaara.mp3">
-<img src="spotify playlist img/Kalapakkaara.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kalapakkaara<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kamini.mp3"
+     data-title="Kamini"
+     data-artist=""
+     data-image="spotify playlist img/Kamini.jpeg">
+    <img src="spotify playlist img/Kamini.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kamini<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Kamini.mp3">
-<img src="spotify playlist img/Kamini.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kamini<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Karakaana.mp3"
+     data-title="Karakaana"
+     data-artist=""
+     data-image="spotify playlist img/Karakaana.jpeg">
+    <img src="spotify playlist img/Karakaana.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Karakaana<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Karakaana.mp3">
-<img src="spotify playlist img/Karakaana.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Karakaana<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Katchi Sera.mp3"
+     data-title="Katchi Sera"
+     data-artist=""
+     data-image="spotify playlist img/Katchi Sera.jpeg">
+    <img src="spotify playlist img/Katchi Sera.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Katchi Sera<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Katchi Sera.mp3">
-<img src="spotify playlist img/Katchi Sera.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Katchi Sera<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kattu Mooliyo.mp3"
+     data-title="Kattu Mooliyo"
+     data-artist=""
+     data-image="spotify playlist img/Kattu Mooliyo.jpeg">
+    <img src="spotify playlist img/Kattu Mooliyo.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kattu Mooliyo<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Kattu Mooliyo.mp3">
-<img src="spotify playlist img/Kattu Mooliyo.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kattu Mooliyo<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Khalbum Katti.mp3"
+     data-title="Khalbum Katti"
+     data-artist="Dabzee"
+     data-image="spotify playlist img/Khalbum Katti.jpeg">
+    <img src="spotify playlist img/Khalbum Katti.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Khalbum Katti<br><br><br>Dabzee</h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Khalbum Katti.mp3">
-<img src="spotify playlist img/Khalbum Katti.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Khalbum Katti<br>
 <br>
-<br>Dabzee</h4>
+<div class="item"
+     data-src="stopify playlist/Kotha Raja.mp3"
+     data-title="Kotha Raja"
+     data-artist=""
+     data-image="spotify playlist img/Kotha Raja.jpeg">
+    <img src="spotify playlist img/Kotha Raja.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kotha Raja<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Kotha Raja.mp3">
-<img src="spotify playlist img/Kotha Raja.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kotha Raja<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kuthanthram.mp3"
+     data-title="Kuthanthram"
+     data-artist=""
+     data-image="spotify playlist img/Kuthanthram.jpeg">
+    <img src="spotify playlist img/Kuthanthram.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kuthanthram<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Kuthanthram.mp3">
-<img src="spotify playlist img/Kuthanthram.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kuthanthram<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Kutty Kudiye.mp3"
+     data-title="Kutty Kudiye"
+     data-artist="Premalu"
+     data-image="spotify playlist img/Kutty Kudiye.jpeg">
+    <img src="spotify playlist img/Kutty Kudiye.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Kutty Kudiye<br><br><br>Premalu</h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Kutty Kudiye.mp3">
-<img src="spotify playlist img/Kutty Kudiye.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Kutty Kudiye<br>
 <br>
-<br>Premalu</h4>
+<div class="item"
+     data-src="stopify playlist/MANKA.mp3"
+     data-title="MANKA"
+     data-artist="Dabzee"
+     data-image="spotify playlist img/MANKA.jpeg">
+    <img src="spotify playlist img/MANKA.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>MANKA<br><br><br>Dabzee</h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/MANKA.mp3">
-<img src="spotify playlist img/MANKA.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>MANKA<br>
 <br>
-<br>Dabzee</h4>
+<div class="item"
+     data-src="stopify playlist/Mada Trance.mp3"
+     data-title="Mada Trance"
+     data-artist="Dabzee"
+     data-image="spotify playlist img/Mada Trance.jpeg">
+    <img src="spotify playlist img/Mada Trance.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Mada Trance<br><br><br>Dabzee</h4>
 </div>
 
 
@@ -625,638 +645,565 @@
 
 
 
-	             <br>  
-<div class="item" data-src="stopify playlist/Mada Trance.mp3">
-<img src="spotify playlist img/Mada Trance.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Mada Trance<br>
-<br>
-<br>Dabzee</h4>
-</div>
-
-
-
-
-
-
-
-
- 
-		
-		
-		
-
-	
-
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
   </div></div>
   <div class="playlist-container">
-  <div class="row">	
-		
-		
-		
-		
-		
-
-		
+  <div class="row">
 
 
-	  
-		
 
-	  <br>
-<div class="item" data-src="stopify playlist/Madhu Pakaroo.mp3">
-<img src="spotify playlist img/Madhu Pakaroo.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Madhu Pakaroo<br>
+
+
+
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Madhu Pakaroo.mp3"
+     data-title="Madhu Pakaroo"
+     data-artist=""
+     data-image="spotify playlist img/Madhu Pakaroo.jpeg">
+    <img src="spotify playlist img/Madhu Pakaroo.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Madhu Pakaroo<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Malabari Banger.mp3">
-<img src="spotify playlist img/Malabari Banger.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Malabari Banger<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Malabari Banger.mp3"
+     data-title="Malabari Banger"
+     data-artist=""
+     data-image="spotify playlist img/Malabari Banger.jpeg">
+    <img src="spotify playlist img/Malabari Banger.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Malabari Banger<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Manavaalan Thug.mp3">
-<img src="spotify playlist img/Manavaalan Thug.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Manavaalan Thug<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Manavaalan Thug.mp3"
+     data-title="Manavaalan Thug"
+     data-artist=""
+     data-image="spotify playlist img/Manavaalan Thug.jpeg">
+    <img src="spotify playlist img/Manavaalan Thug.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Manavaalan Thug<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Manickyachirakulla.mp3">
-<img src="spotify playlist img/Manickyachirakulla.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Manickyachirakulla<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Manickyachirakulla.mp3"
+     data-title="Manickyachirakulla"
+     data-artist=""
+     data-image="spotify playlist img/Manickyachirakulla.jpeg">
+    <img src="spotify playlist img/Manickyachirakulla.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Manickyachirakulla<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Mathapithakkale.mp3">
-<img src="spotify playlist img/Mathapithakkale.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Mathapithakkale<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Mathapithakkale.mp3"
+     data-title="Mathapithakkale"
+     data-artist=""
+     data-image="spotify playlist img/Mathapithakkale.jpeg">
+    <img src="spotify playlist img/Mathapithakkale.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Mathapithakkale<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Mazhavillile.mp3">
-<img src="spotify playlist img/Mazhavillile.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Mazhavillile<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Mazhavillile.mp3"
+     data-title="Mazhavillile"
+     data-artist=""
+     data-image="spotify playlist img/Mazhavillile.jpeg">
+    <img src="spotify playlist img/Mazhavillile.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Mazhavillile<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Mini Maharani.mp3">
-<img src="spotify playlist img/Mini Maharani.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Mini Maharani<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Mini Maharani.mp3"
+     data-title="Mini Maharani"
+     data-artist=""
+     data-image="spotify playlist img/Mini Maharani.jpeg">
+    <img src="spotify playlist img/Mini Maharani.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Mini Maharani<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Moongil Thottam.mp3">
-<img src="spotify playlist img/Moongil Thottam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4><br>
 <br>
-<br>Moongil Thottam</h4>
+<div class="item"
+     data-src="stopify playlist/Moongil Thottam.mp3"
+     data-title="Moongil Thottam"
+     data-artist=""
+     data-image="spotify playlist img/Moongil Thottam.jpeg">
+    <img src="spotify playlist img/Moongil Thottam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Moongil Thottam<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Nebulakal.mp3">
-<img src="spotify playlist img/Nebulakal.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Nebulakal<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Nebulakal.mp3"
+     data-title="Nebulakal"
+     data-artist=""
+     data-image="spotify playlist img/Nebulakal.jpeg">
+    <img src="spotify playlist img/Nebulakal.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Nebulakal<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Nenjakame.mp3">
-<img src="spotify playlist img/Nenjakame.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Nenjakame<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Nenjakame.mp3"
+     data-title="Nenjakame"
+     data-artist=""
+     data-image="spotify playlist img/Nenjakame.jpeg">
+    <img src="spotify playlist img/Nenjakame.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Nenjakame<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Njaanaalunna.mp3">
-<img src="spotify playlist img/Njaanaalunna.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Njaanaalunna<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Njaanaalunna.mp3"
+     data-title="Njaanaalunna"
+     data-artist=""
+     data-image="spotify playlist img/Njaanaalunna.jpeg">
+    <img src="spotify playlist img/Njaanaalunna.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Njaanaalunna<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Nyabagam.mp3">
-<img src="spotify playlist img/Nyabagam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Nyabagam<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Nyabagam.mp3"
+     data-title="Nyabagam"
+     data-artist=""
+     data-image="spotify playlist img/Nyabagam.jpeg">
+    <img src="spotify playlist img/Nyabagam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Nyabagam<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Odimaga.mp3">
-<img src="spotify playlist img/Odimaga.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Odimaga<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Odimaga.mp3"
+     data-title="Odimaga"
+     data-artist=""
+     data-image="spotify playlist img/Odimaga.jpeg">
+    <img src="spotify playlist img/Odimaga.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Odimaga<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Ordinary Person.mp3">
-<img src="spotify playlist img/Ordinary Person.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Ordinary Person<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Ordinary Person.mp3"
+     data-title="Ordinary Person"
+     data-artist=""
+     data-image="spotify playlist img/Ordinary Person.jpeg">
+    <img src="spotify playlist img/Ordinary Person.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Ordinary Person<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  <br>
-<div class="item" data-src="stopify playlist/Padachor.mp3">
-<img src="spotify playlist img/Padachor.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Padachor<br>
 <br>
-<br>MHR</h4>
+<div class="item"
+     data-src="stopify playlist/Padachor.mp3"
+     data-title="Padachor"
+     data-artist="MHR"
+     data-image="spotify playlist img/Padachor.jpeg">
+    <img src="spotify playlist img/Padachor.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Padachor<br><br><br>MHR</h4>
 </div>
 
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Pakalin Vaathil.mp3">
-<img src="spotify playlist img/Pakalin Vaathil.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Pakalin Vaathil<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Pakalin Vaathil.mp3"
+     data-title="Pakalin Vaathil"
+     data-artist=""
+     data-image="spotify playlist img/Pakalin Vaathil.jpeg">
+    <img src="spotify playlist img/Pakalin Vaathil.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Pakalin Vaathil<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Payye Veesum.mp3">
-<img src="spotify playlist img/Payye Veesum.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Payye Veesum<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Payye Veesum.mp3"
+     data-title="Payye Veesum"
+     data-artist=""
+     data-image="spotify playlist img/Payye Veesum.jpeg">
+    <img src="spotify playlist img/Payye Veesum.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Payye Veesum<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Pehle Bhi Main.mp3">
-<img src="spotify playlist img/Pehle Bhi Main.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Pehle Bhi Main<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Pehle Bhi Main.mp3"
+     data-title="Pehle Bhi Main"
+     data-artist=""
+     data-image="spotify playlist img/Pehle Bhi Main.jpeg">
+    <img src="spotify playlist img/Pehle Bhi Main.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Pehle Bhi Main<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/People.mp3">
-<img src="spotify playlist img/People.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>People<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/People.mp3"
+     data-title="People"
+     data-artist=""
+     data-image="spotify playlist img/People.jpeg">
+    <img src="spotify playlist img/People.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>People<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Periyone.mp3">
-<img src="spotify playlist img/Periyone.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Periyone<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Periyone.mp3"
+     data-title="Periyone"
+     data-artist=""
+     data-image="spotify playlist img/Periyone.jpeg">
+    <img src="spotify playlist img/Periyone.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Periyone<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Poomuthole.mp3">
-<img src="spotify playlist img/Poomuthole.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Poomuthole<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Poomuthole.mp3"
+     data-title="Poomuthole"
+     data-artist=""
+     data-image="spotify playlist img/Poomuthole.jpeg">
+    <img src="spotify playlist img/Poomuthole.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Poomuthole<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Premakkathu Pattu.mp3">
-<img src="spotify playlist img/Premakkathu Pattu.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Premakkathu Pattu<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Premakkathu Pattu.mp3"
+     data-title="Premakkathu Pattu"
+     data-artist=""
+     data-image="spotify playlist img/Premakkathu Pattu.jpeg">
+    <img src="spotify playlist img/Premakkathu Pattu.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Premakkathu Pattu<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  <br>
-<div class="item" data-src="stopify playlist/Pyaar Pyaar.mp3">
-<img src="spotify playlist img/Pyaar Pyaar.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Pyaar Pyaar<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Pyaar Pyaar.mp3"
+     data-title="Pyaar Pyaar"
+     data-artist=""
+     data-image="spotify playlist img/Pyaar Pyaar.jpeg">
+    <img src="spotify playlist img/Pyaar Pyaar.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Pyaar Pyaar<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Pyara Mera Veera.mp3">
-<img src="spotify playlist img/Pyara Mera Veera.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Pyara Mera Veera<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Pyara Mera Veera.mp3"
+     data-title="Pyara Mera Veera"
+     data-artist=""
+     data-image="spotify playlist img/Pyara Mera Veera.jpeg">
+    <img src="spotify playlist img/Pyara Mera Veera.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Pyara Mera Veera<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/SAMBAR.mp3">
-<img src="spotify playlist img/SAMBAR.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>SAMBAR<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/SAMBAR.mp3"
+     data-title="SAMBAR"
+     data-artist=""
+     data-image="spotify playlist img/SAMBAR.jpeg">
+    <img src="spotify playlist img/SAMBAR.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>SAMBAR<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Sachin, I Love You.mp3">
-<img src="spotify playlist img/Sachin, I Love You.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Sachin, I Love You<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Sachin, I Love You.mp3"
+     data-title="Sachin, I Love You"
+     data-artist=""
+     data-image="spotify playlist img/Sachin, I Love You.jpeg">
+    <img src="spotify playlist img/Sachin, I Love You.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Sachin, I Love You<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Sangamam.mp3">
-<img src="spotify playlist img/Sangamam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Sangamam<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Sangamam.mp3"
+     data-title="Sangamam"
+     data-artist=""
+     data-image="spotify playlist img/Sangamam.jpeg">
+    <img src="spotify playlist img/Sangamam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Sangamam<br><br><br></h4>
 </div>
 
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Satranga.mp3">
-<img src="spotify playlist img/Satranga.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Satranga<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Satranga.mp3"
+     data-title="Satranga"
+     data-artist=""
+     data-image="spotify playlist img/Satranga.jpeg">
+    <img src="spotify playlist img/Satranga.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Satranga<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  	  	  	  <br>
-<div class="item" data-src="stopify playlist/Tharam.mp3">
-<img src="spotify playlist img/Tharam.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Tharam<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Tharam.mp3"
+     data-title="Tharam"
+     data-artist=""
+     data-image="spotify playlist img/Tharam.jpeg">
+    <img src="spotify playlist img/Tharam.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Tharam<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  <div class="item" data-src="stopify playlist/The Age Of Madness.mp3">
-<img src="spotify playlist img/The Age Of Madness.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>The Age Of Madness<br>
 <br>
-<br></h4>
-	  </div>
-
-
-
-
-
-
-
-	  <div class="item" data-src="stopify playlist/Thurupu Cheetu.mp3">
-<img src="spotify playlist img/Thurupu Cheetu.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
+<div class="item"
+     data-src="stopify playlist/The Age Of Madness.mp3"
+     data-title="The Age Of Madness"
+     data-artist=""
+     data-image="spotify playlist img/The Age Of Madness.jpeg">
+    <img src="spotify playlist img/The Age Of Madness.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>The Age Of Madness<br><br><br></h4>
 </div>
-<h4>Thurupu Cheetu<br>
+
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Thurupu Cheetu.mp3"
+     data-title="Thurupu Cheetu"
+     data-artist=""
+     data-image="spotify playlist img/Thurupu Cheetu.jpeg">
+    <img src="spotify playlist img/Thurupu Cheetu.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Thurupu Cheetu<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  <div class="item" data-src="stopify playlist/Urukumen Azhalinu Thanalu.mp3">
-<img src="spotify playlist img/Urukumen Azhalinu Thanalu.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Urukumen Azhalinu Thanalu<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Urukumen Azhalinu Thanalu.mp3"
+     data-title="Urukumen Azhalinu Thanalu"
+     data-artist=""
+     data-image="spotify playlist img/Urukumen Azhalinu Thanalu.jpeg">
+    <img src="spotify playlist img/Urukumen Azhalinu Thanalu.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Urukumen Azhalinu Thanalu<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  <div class="item" data-src="stopify playlist/Welcome To Hyderabad.mp3">
-<img src="spotify playlist img/Welcome To Hyderabad.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>Welcome To Hyderabad<br>
 <br>
-<br></h4>
+<div class="item"
+     data-src="stopify playlist/Welcome To Hyderabad.mp3"
+     data-title="Welcome To Hyderabad"
+     data-artist=""
+     data-image="spotify playlist img/Welcome To Hyderabad.jpeg">
+    <img src="spotify playlist img/Welcome To Hyderabad.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>Welcome To Hyderabad<br><br><br></h4>
 </div>
 
-
-
-
-
-
-
-	  <div class="item" data-src="stopify playlist/What Economy.mp3">
-<img src="spotify playlist img/What Economy.jpeg" />
- <div class="play">
-<span class="fa fa-play"></span>
-</div>
-<h4>What Economy<br>
 <br>
-<br>SA</h4>
+<div class="item"
+     data-src="stopify playlist/What Economy.mp3"
+     data-title="What Economy"
+     data-artist="SA"
+     data-image="spotify playlist img/What Economy.jpeg">
+    <img src="spotify playlist img/What Economy.jpeg" />
+    <div class="play">
+        <span class="fa fa-play"></span>
+    </div>
+    <div class="like">
+        <span class="fa fa-heart"></span>
+    </div>
+    <h4>What Economy<br><br><br>SA</h4>
 </div>
+<br>
 
 
 
 
 
 
-
-
-
-
-	  
-
-
-
-
-
-
-
-
-
-	
-		
-		
-		
-		
-		
-		
-		
-
-		
   </div></div>
   <div class="playlist-container">
   <div class="row">			
@@ -1266,165 +1213,180 @@
 
       </div>
     </div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-<div class="preview" style="opacity: 1; transition: opacity 2s ease-out;">
-  <div class="text">
-    <h6>Stopify</h6>
-    <p>follow me on instagram</p>
-  </div>
-  <div class="button">
-    <a href="https://www.instagram.com/ash_him__/"><button type="button">####iM</button></a>
-  </div>
-</div>
-  </div>
-  <audio id="audioPlayer" controls></audio>
-  <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
-  <script>
-    var searchBar = document.getElementById('searchBar');
-    var searchIcon = document.getElementById('searchIcon');
-    var searchInput = document.getElementById('searchInput');
-    var items = document.querySelectorAll('.item');
-    var audioPlayer = document.getElementById('audioPlayer');
-	var shuffleButton = document.getElementById('shuffleButton');
-    var shuffledPlaylist = [];
-    var currentIndex = 0;
+      <div class="preview" style="opacity: 1; transition: opacity 2s ease-out;">
+        <div class="text">
+          <h6>Stopify</h6>
+          <p>follow me on instagram</p>
+        </div>
+        <div class="button">
+          <a href="https://www.instagram.com/ash_him__/"><button type="button">####iM</button></a>
+        </div>
+      </div>
+    </div>
+    <audio id="audioPlayer" controls></audio>
+    <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
+<script>
+  var searchBar = document.getElementById('searchBar');
+  var searchIcon = document.getElementById('searchIcon');
+  var searchInput = document.getElementById('searchInput');
+  var items = document.querySelectorAll('.item');
+  var audioPlayer = document.getElementById('audioPlayer');
+  var shuffleButton = document.getElementById('shuffleButton');
+  var shuffledPlaylist = [];
+  var currentIndex = 0;
 
-    searchIcon.addEventListener('click', function() {
-      searchBar.classList.toggle('active');
-      searchInput.focus();
+  searchIcon.addEventListener('click', function() {
+    searchBar.classList.toggle('active');
+    searchInput.focus();
+    setSearchBarTimeout();
+  });
+
+  searchInput.addEventListener('focus', function() {
+    searchBar.classList.add('active');
+    setSearchBarTimeout();
+  });
+
+  function setSearchBarTimeout() {
+    setTimeout(function() {
+      searchBar.classList.remove('active');
+    }, 20000);
+  }
+
+  function search() {
+    var input, filter, list, title, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    list = document.querySelector(".list");
+
+    // Clear the list
+    list.innerHTML = '';
+
+    // If search input is empty, repopulate the list with all items
+    if (filter.trim() === '') {
+      items.forEach(function(item) {
+        list.appendChild(item.cloneNode(true));
+      });
       setSearchBarTimeout();
-    });
-
-    searchInput.addEventListener('focus', function() {
-      searchBar.classList.add('active');
-      setSearchBarTimeout();
-    });
-
-    function setSearchBarTimeout() {
-      setTimeout(function() {
-        searchBar.classList.remove('active');
-      }, 20000);
+      return;
     }
 
-    function search() {
-      var input, filter, list, title, txtValue;
-      input = document.getElementById("searchInput");
-      filter = input.value.toUpperCase();
-      list = document.querySelector(".list");
+    // Filter and add items to the list
+    for (var i = 0; i < items.length; i++) {
+      title = items[i].querySelector("h4");
+      txtValue = title.textContent || title.innerText;
 
-      // Clear the list
-      list.innerHTML = '';
-
-      // If search input is empty, repopulate the list with all items
-      if (filter.trim() === '') {
-        items.forEach(function(item) {
-          list.appendChild(item.cloneNode(true));
-        });
-        setSearchBarTimeout();
-        return;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        list.appendChild(items[i].cloneNode(true));
       }
-
-      // Filter and add items to the list
-      for (var i = 0; i < items.length; i++) {
-        title = items[i].querySelector("h4");
-        txtValue = title.textContent || title.innerText;
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          list.appendChild(items[i].cloneNode(true));
-        }
-      }
-      setSearchBarTimeout();
     }
+    setSearchBarTimeout();
+  }
 
-    // Event delegation to play songs
-    document.addEventListener('click', function(event) {
-      if (event.target && event.target.classList.contains('fa-play')) {
-        var song = event.target.parentNode.parentNode.getAttribute('data-src');
-        if (song) {
-          audioPlayer.src = song;
-          audioPlayer.play();
-          audioPlayer.style.display = 'block'; // Show the audio player
-        }
+  // Function to update like button states
+  function updateLikeButtons() {
+    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    var likedTitles = likedSongs.map(song => song.title);
+
+    items.forEach(function(item) {
+      var title = item.getAttribute('data-title');
+      if (likedTitles.includes(title)) {
+        item.querySelector('.fa-heart').classList.add('liked');
+      } else {
+        item.querySelector('.fa-heart').classList.remove('liked');
       }
     });
-	
-	
-	    // Shuffle playlist
-    function shufflePlaylist() {
-      shuffledPlaylist = shuffle(Array.from(items));
-      currentIndex = 0; // Reset current index
-      playNextShuffledSong();
-    }
+  }
 
-    // Play the next shuffled song
-    function playNextShuffledSong() {
-      if (shuffledPlaylist.length > 0) {
-        if (currentIndex < shuffledPlaylist.length) {
-          audioPlayer.src = shuffledPlaylist[currentIndex].getAttribute('data-src');
-          audioPlayer.play();
-          currentIndex++;
-        } else {
-          // Playlist has ended, stop playing
-          audioPlayer.pause();
-        }
+  // Event delegation to play songs
+  document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('fa-play')) {
+      var song = event.target.parentNode.parentNode.getAttribute('data-src');
+      if (song) {
+        audioPlayer.src = song;
+        audioPlayer.play();
+        audioPlayer.style.display = 'block'; // Show the audio player
+      }
+    } else if (event.target && event.target.classList.contains('fa-heart')) {
+      var item = event.target.parentNode.parentNode;
+      var title = item.getAttribute('data-title');
+      var artist = item.getAttribute('data-artist');
+      var image = item.getAttribute('data-image');
+      var src = item.getAttribute('data-src');
+
+      // Get existing liked songs from localStorage
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+
+      // Check if the song is already liked
+      var isLiked = likedSongs.some(song => song.title === title);
+
+      if (isLiked) {
+        // Remove the song from liked songs
+        likedSongs = likedSongs.filter(song => song.title !== title);
+        localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+        event.target.classList.remove('liked');
+      } else {
+        // Add the song to liked songs
+        likedSongs.push({ title, artist, image, src });
+        localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+        event.target.classList.add('liked');
       }
     }
+  });
 
-    // Shuffle algorithm
-    function shuffle(array) {
-      var currentIndex = array.length,
-        temporaryValue, randomIndex;
+  // Shuffle playlist
+  function shufflePlaylist() {
+    shuffledPlaylist = shuffle(Array.from(items));
+    currentIndex = 0; // Reset current index
+    playNextShuffledSong();
+  }
 
-      // While there remain elements to shuffle...
-      while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+  // Play the next shuffled song
+  function playNextShuffledSong() {
+    if (shuffledPlaylist.length > 0) {
+      if (currentIndex < shuffledPlaylist.length) {
+        audioPlayer.src = shuffledPlaylist[currentIndex].getAttribute('data-src');
+        audioPlayer.play();
+        currentIndex++;
+      } else {
+        // Playlist has ended, stop playing
+        audioPlayer.pause();
       }
+    }
+  }
 
-      return array;
+  // Shuffle algorithm
+  function shuffle(array) {
+    var currentIndex = array.length,
+      temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
     }
 
-    // Initialize playlist on page load
-    window.addEventListener('DOMContentLoaded', function() {
-      shufflePlaylist(); // Initial shuffle
-    });
+    return array;
+  }
 
-    // Play the next shuffled song when current song ends
-    audioPlayer.addEventListener('ended', function() {
-      playNextShuffledSong();
-    });
-	
-	
-	
-	
-	  window.addEventListener('DOMContentLoaded', (event) => {
+  // Initialize playlist on page load
+  window.addEventListener('DOMContentLoaded', function() {
+    shufflePlaylist(); // Initial shuffle
+    updateLikeButtons(); // Update like buttons based on localStorage
+  });
+
+  // Play the next shuffled song when current song ends
+  audioPlayer.addEventListener('ended', function() {
+    playNextShuffledSong();
+  });
+
+  window.addEventListener('DOMContentLoaded', (event) => {
     setTimeout(() => {
       const previewElement = document.querySelector('.preview');
       previewElement.style.opacity = '0';
@@ -1434,14 +1396,7 @@
       }, 2000); // Wait for the opacity transition to finish
     }, 1000); // 10 seconds
   });
-	
-	
-	
-	
-	
-	
-	
-  </script>
+</script>
 </body>
 
 </html>
