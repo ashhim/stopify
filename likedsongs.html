@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopify - Liked Songs</title>
+  <link rel="shortcut icon"
+    href="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-logo-spotify-symbol-3.png" type="image/png">
+  <link rel="stylesheet" href="stopify.css">
+  <style>
+    #audioPlayer {
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 7%;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1px;
+      box-sizing: border-box;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #909e9c;
+      color: white;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-volume-slider,
+    audio::-webkit-media-controls-timeline {
+      filter: invert(1);
+    }
+
+    .like {
+      cursor: pointer;
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .liked {
+      color: red;
+    }
+
+    .green-play-button {
+
+      cursor: pointer;
+      background-color: #1db954;
+      color: white;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 50%;
+      font-size: 0.5em;
+      margin-left: 10px;
+
+    }
+
+    .song-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .song-item img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .song-info {
+      flex-grow: 1;
+    }
+
+    .unlike-button {
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 50%;
+      font-size: 0.5em;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <a href="#">
+        <img src="spotify playlist img/icon/logo.png" alt="Logo" />
+      </a>
+    </div>
+
+    <div class="navigation-bottom">
+      <ul>
+        <li>
+          <a href="index.html">
+            <span class="fa fa-home"></span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" id="searchIcon">
+            <span class="fa fa-search"></span>
+            <span>Search</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="fa fas fa-book"></span>
+            <span>Your Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="likedsongs.html">
+            <span class="fa fas fa-heart"></span>
+            <span>Liked Songs</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="topbar">
+      <div class="prev-next-buttons">
+      </div>
+      <div class="navbar">
+        <a href="https://www.instagram.com/ash_him__?utm_source=qr&igsh=MjVvcmNnazgweWdo"><button
+            type="button">####iM</button></a>
+        <li>
+          <button class="shuffleButton" id="shuffleButton">
+            <img src="3005162.webp" width="18" alt="Shuffle Icon" />
+          </button>
+        </li>
+      </div>
+    </div>
+
+    <div id="searchBar">
+      <input type="text" id="searchInput" oninput="search()" placeholder="What do you want to play?">
+    </div>
+
+    <h2>Liked Songs</h2>
+    <div id="songList" class="item">
+      <!-- Liked songs will be populated here -->
+    </div>
+
+    <div class="audio-player-container">
+      <audio id="audioPlayer" controls></audio>
+    </div>
+  </div>
+
+  <script>
+    var searchBar = document.getElementById('searchBar');
+    var searchIcon = document.getElementById('searchIcon');
+    var searchInput = document.getElementById('searchInput');
+    var songListContainer = document.getElementById('songList');
+    var audioPlayer = document.getElementById('audioPlayer');
+    var shuffleButton = document.getElementById('shuffleButton');
+    var currentPlayingSongIndex = -1;
+    var currentlyPlayingButton = null;
+
+    searchIcon.addEventListener('click', function () {
+      searchBar.classList.toggle('active');
+      searchInput.focus();
+      setSearchBarTimeout();
+    });
+
+    searchInput.addEventListener('focus', function () {
+      searchBar.classList.add('active');
+      setSearchBarTimeout();
+    });
+
+    function setSearchBarTimeout() {
+      setTimeout(function () {
+        searchBar.classList.remove('active');
+      }, 20000);
+    }
+
+    function search() {
+      var input, filter, list, title, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      list = document.querySelector("#songList");
+
+      Array.from(list.children).forEach(function (item) {
+        title = item.querySelector(".song-info h4");
+        txtValue = title.textContent || title.innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function renderSongs() {
+      songListContainer.innerHTML = ''; // Clear existing content
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+
+      if (likedSongs.length === 0) {
+        songListContainer.innerHTML = '<p>No liked songs found.</p>';
+      } else {
+        likedSongs.forEach(function (song, index) {
+          var songItem = document.createElement('div');
+          songItem.className = 'song-item';
+
+          var songImage = document.createElement('img');
+          songImage.src = song.image;
+
+          var songInfo = document.createElement('div');
+          songInfo.className = 'song-info';
+          songInfo.innerHTML = '<h4>' + song.title + '<br>' + song.artist + '</h4>';
+
+          var playButton = document.createElement('button');
+          playButton.className = 'green-play-button';
+          playButton.innerHTML = '&#9654;'; // Play icon
+          playButton.addEventListener('click', function () {
+            togglePlayPause(index, playButton);
+          });
+
+          var unlikeButton = document.createElement('span');
+          unlikeButton.className = 'unlike-button';
+          unlikeButton.innerHTML = '&#9825;';
+          unlikeButton.addEventListener('click', function () {
+            unlikeSong(index);
+          });
+
+          songItem.appendChild(songImage);
+          songItem.appendChild(songInfo);
+          songItem.appendChild(playButton);
+          songItem.appendChild(unlikeButton);
+          songListContainer.appendChild(songItem);
+        });
+    function togglePlayPause(index, button) {
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+      var song = likedSongs[index];
+
+      if (audioPlayer.src !== song.src) {
+        audioPlayer.src = song.src;
+        audioPlayer.play();
+        button.innerHTML = '&#8778;'; // Pause icon
+
+        // Pause the previous song if another song is playing
+        if (currentlyPlayingButton && currentlyPlayingButton !== button) {
+          currentlyPlayingButton.innerHTML = '&#9658;'; // Play icon
+        }
+
+        currentlyPlayingButton = button;
+        currentPlayingSongIndex = index;
+      } else if (audioPlayer.paused) {
+        audioPlayer.play();
+        button.innerHTML = '&#10074;&#10074;'; // Pause icon
+      } else {
+        audioPlayer.pause();
+        button.innerHTML = '&#9658;'; // Play icon
+      }
+    }
+
+    function unlikeSong(index) {
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+      likedSongs.splice(index, 1);
+      localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+      renderSongs();
+    }
+
+    function shufflePlaylist() {
+      var items = Array.from(songListContainer.children);
+      var shuffledPlaylist = shuffle(items);
+      currentPlayingSongIndex = 0;
+      playNextShuffledSong(shuffledPlaylist);
+    }
+
+    function playNextShuffledSong(shuffledPlaylist) {
+      if (shuffledPlaylist.length > 0) {
+        if (currentPlayingSongIndex < shuffledPlaylist.length) {
+          var songElement = shuffledPlaylist[currentPlayingSongIndex];
+          var songIndex = Array.from(songListContainer.children).indexOf(songElement);
+          playSong(songIndex);
+          currentPlayingSongIndex++;
+        } else {
+          audioPlayer.pause();
+        }
+      }
+    }
+
+    function shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    shuffleButton.addEventListener('click', shufflePlaylist);
+
+    // Load liked songs when the page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      renderSongs();
+    });
+      }
+    }
+
+    function playSong(index) {
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+      var song = likedSongs[index];
+      audioPlayer.src = song.src; // Assuming each song object has a 'src' attribute
+      audioPlayer.play();
+      currentPlayingSongIndex = index;
+    }
+
+    function unlikeSong(index) {
+      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+      likedSongs.splice(index, 1);
+      localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+      renderSongs();
+    }
+
+    function shufflePlaylist() {
+      var items = Array.from(songListContainer.children);
+      var shuffledPlaylist = shuffle(items);
+      currentPlayingSongIndex = 0;
+      playNextShuffledSong(shuffledPlaylist);
+    }
+
+
+    function playNextShuffledSong(shuffledPlaylist) {
+      if (shuffledPlaylist.length > 0) {
+        if (currentPlayingSongIndex < shuffledPlaylist.length) {
+          var songElement = shuffledPlaylist[currentPlayingSongIndex];
+          var songIndex = Array.from(songListContainer.children).indexOf(songElement);
+          playSong(songIndex);
+          currentPlayingSongIndex++;
+        } else {
+          audioPlayer.pause();
+        }
+      }
+    }
+
+    function shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+
+    window.addEventListener('DOMContentLoaded', function() {
+      renderSongs();
+      shuffleButton.addEventListener('click', function() {
+        shufflePlaylist();
+      });
+      audioPlayer.addEventListener('ended', function() {
+        playNextShuffledSong(shuffledPlaylist);
+      });
+    });
+  </script>
+</body>
+
+</html>
