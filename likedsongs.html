@@ -142,7 +142,7 @@
       <input type="text" id="searchInput" oninput="search()" placeholder="What do you want to play?">
     </div>
 
-    <h2>Liked Songs</h2>
+    <h2 style="color:white;">Liked Songs</h2>
     <div id="songList" class="item">
       <!-- Liked songs will be populated here -->
     </div>
@@ -213,7 +213,7 @@
 
           var songInfo = document.createElement('div');
           songInfo.className = 'song-info';
-          songInfo.innerHTML = '<h4 style="color:white;">' + song.title + '<br>' + song.artist + '</h4>';
+          songInfo.innerHTML = '<h4 style="color:grey;">' + song.title + '<br>' + song.artist + '</h4>';
 
           var playButton = document.createElement('button');
           playButton.className = 'green-play-button';
