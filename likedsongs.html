@@ -152,229 +152,188 @@
     </div>
   </div>
 
-  <script>
-    var searchBar = document.getElementById('searchBar');
-    var searchIcon = document.getElementById('searchIcon');
-    var searchInput = document.getElementById('searchInput');
-    var songListContainer = document.getElementById('songList');
-    var audioPlayer = document.getElementById('audioPlayer');
-    var shuffleButton = document.getElementById('shuffleButton');
-    var currentPlayingSongIndex = -1;
-    var currentlyPlayingButton = null;
+<script>
+  var searchBar = document.getElementById('searchBar');
+  var searchIcon = document.getElementById('searchIcon');
+  var searchInput = document.getElementById('searchInput');
+  var songListContainer = document.getElementById('songList');
+  var audioPlayer = document.getElementById('audioPlayer');
+  var shuffleButton = document.getElementById('shuffleButton');
+  var currentPlayingSongIndex = -1;
+  var currentlyPlayingButton = null;
+  var shuffledPlaylist = [];
 
-    searchIcon.addEventListener('click', function () {
-      searchBar.classList.toggle('active');
-      searchInput.focus();
-      setSearchBarTimeout();
-    });
+  searchIcon.addEventListener('click', function () {
+    searchBar.classList.toggle('active');
+    searchInput.focus();
+    setSearchBarTimeout();
+  });
 
-    searchInput.addEventListener('focus', function () {
-      searchBar.classList.add('active');
-      setSearchBarTimeout();
-    });
+  searchInput.addEventListener('focus', function () {
+    searchBar.classList.add('active');
+    setSearchBarTimeout();
+  });
 
-    function setSearchBarTimeout() {
-      setTimeout(function () {
-        searchBar.classList.remove('active');
-      }, 20000);
-    }
+  function setSearchBarTimeout() {
+    setTimeout(function () {
+      searchBar.classList.remove('active');
+    }, 20000);
+  }
 
-    function search() {
-      var input, filter, list, title, txtValue;
-      input = document.getElementById("searchInput");
-      filter = input.value.toUpperCase();
-      list = document.querySelector("#songList");
+  function search() {
+    var input, filter, list, title, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    list = document.querySelector("#songList");
 
-      Array.from(list.children).forEach(function (item) {
-        title = item.querySelector(".song-info h4");
-        txtValue = title.textContent || title.innerText;
+    Array.from(list.children).forEach(function (item) {
+      title = item.querySelector(".song-info h4");
+      txtValue = title.textContent || title.innerText;
 
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    function renderSongs() {
-      songListContainer.innerHTML = ''; // Clear existing content
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-
-      if (likedSongs.length === 0) {
-        songListContainer.innerHTML = '<p>No liked songs found.</p>';
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        item.style.display = '';
       } else {
-        likedSongs.forEach(function (song, index) {
-          var songItem = document.createElement('div');
-          songItem.className = 'song-item';
+        item.style.display = 'none';
+      }
+    });
+  }
 
-          var songImage = document.createElement('img');
-          songImage.src = song.image;
+  function renderSongs() {
+    songListContainer.innerHTML = ''; // Clear existing content
+    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
 
-          var songInfo = document.createElement('div');
-          songInfo.className = 'song-info';
-          songInfo.innerHTML = '<h4 style="color:grey;">' + song.title + '<br>' + song.artist + '</h4>';
+    if (likedSongs.length === 0) {
+      songListContainer.innerHTML = '<p>No liked songs found.</p>';
+    } else {
+      likedSongs.forEach(function (song, index) {
+        var songItem = document.createElement('div');
+        songItem.className = 'song-item';
 
-          var playButton = document.createElement('button');
-          playButton.className = 'green-play-button';
-          playButton.innerHTML = '&#9654;'; // Play icon
-          playButton.addEventListener('click', function () {
-            togglePlayPause(index, playButton);
-          });
+        var songImage = document.createElement('img');
+        songImage.src = song.image;
 
-          var unlikeButton = document.createElement('span');
-          unlikeButton.className = 'unlike-button';
-          unlikeButton.innerHTML = '&#9825;';
-          unlikeButton.addEventListener('click', function () {
-            unlikeSong(index);
-          });
+        var songInfo = document.createElement('div');
+        songInfo.className = 'song-info';
+        songInfo.innerHTML = '<h4 style="color:grey;">' + song.title + '<br>' + song.artist + '</h4>';
 
-          songItem.appendChild(songImage);
-          songItem.appendChild(songInfo);
-          songItem.appendChild(playButton);
-          songItem.appendChild(unlikeButton);
-          songListContainer.appendChild(songItem);
+        var playButton = document.createElement('button');
+        playButton.className = 'green-play-button';
+        playButton.innerHTML = '&#9654;'; // Play icon
+        playButton.addEventListener('click', function () {
+          togglePlayPause(index, playButton);
         });
-    function togglePlayPause(index, button) {
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-      var song = likedSongs[index];
 
-      if (audioPlayer.src !== song.src) {
-        audioPlayer.src = song.src;
-        audioPlayer.play();
-        button.innerHTML = '&#8778;'; // Pause icon
+        var unlikeButton = document.createElement('span');
+        unlikeButton.className = 'unlike-button';
+        unlikeButton.innerHTML = '&#9825;';
+        unlikeButton.addEventListener('click', function () {
+          unlikeSong(index);
+        });
 
-        // Pause the previous song if another song is playing
-        if (currentlyPlayingButton && currentlyPlayingButton !== button) {
-          currentlyPlayingButton.innerHTML = '&#9658;'; // Play icon
-        }
-
-        currentlyPlayingButton = button;
-        currentPlayingSongIndex = index;
-      } else if (audioPlayer.paused) {
-        audioPlayer.play();
-        button.innerHTML = '&#10074;&#10074;'; // Pause icon
-      } else {
-        audioPlayer.pause();
-        button.innerHTML = '&#9658;'; // Play icon
-      }
+        songItem.appendChild(songImage);
+        songItem.appendChild(songInfo);
+        songItem.appendChild(playButton);
+        songItem.appendChild(unlikeButton);
+        songListContainer.appendChild(songItem);
+      });
     }
+  }
 
-    function unlikeSong(index) {
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-      likedSongs.splice(index, 1);
-      localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
-      renderSongs();
-    }
+  function togglePlayPause(index, button) {
+    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    var song = likedSongs[index];
 
-    function shufflePlaylist() {
-      var items = Array.from(songListContainer.children);
-      var shuffledPlaylist = shuffle(items);
-      currentPlayingSongIndex = 0;
-      playNextShuffledSong(shuffledPlaylist);
-    }
-
-    function playNextShuffledSong(shuffledPlaylist) {
-      if (shuffledPlaylist.length > 0) {
-        if (currentPlayingSongIndex < shuffledPlaylist.length) {
-          var songElement = shuffledPlaylist[currentPlayingSongIndex];
-          var songIndex = Array.from(songListContainer.children).indexOf(songElement);
-          playSong(songIndex);
-          currentPlayingSongIndex++;
-        } else {
-          audioPlayer.pause();
-        }
-      }
-    }
-
-    function shuffle(array) {
-      var currentIndex = array.length,
-        temporaryValue, randomIndex;
-
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-
-      return array;
-    }
-
-    shuffleButton.addEventListener('click', shufflePlaylist);
-
-    // Load liked songs when the page loads
-    document.addEventListener('DOMContentLoaded', function () {
-      renderSongs();
-    });
-      }
-    }
-
-    function playSong(index) {
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-      var song = likedSongs[index];
-      audioPlayer.src = song.src; // Assuming each song object has a 'src' attribute
+    if (audioPlayer.src !== song.src) {
+      audioPlayer.src = song.src;
       audioPlayer.play();
+      button.innerHTML = '&#10074;&#10074;'; // Pause icon
+
+      // Pause the previous song if another song is playing
+      if (currentlyPlayingButton && currentlyPlayingButton !== button) {
+        currentlyPlayingButton.innerHTML = '&#9658;'; // Play icon
+      }
+
+      currentlyPlayingButton = button;
       currentPlayingSongIndex = index;
+    } else if (audioPlayer.paused) {
+      audioPlayer.play();
+      button.innerHTML = '&#10074;&#10074;'; // Pause icon
+    } else {
+      audioPlayer.pause();
+      button.innerHTML = '&#9658;'; // Play icon
+    }
+  }
+
+  function unlikeSong(index) {
+    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    likedSongs.splice(index, 1);
+    localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+    renderSongs();
+  }
+
+  function shufflePlaylist() {
+    var items = Array.from(songListContainer.children);
+    shuffledPlaylist = shuffle(items);
+    currentPlayingSongIndex = 0;
+    playNextShuffledSong();
+  }
+
+  function playNextShuffledSong() {
+    if (shuffledPlaylist.length > 0) {
+      if (currentPlayingSongIndex < shuffledPlaylist.length) {
+        var songElement = shuffledPlaylist[currentPlayingSongIndex];
+        var songIndex = Array.from(songListContainer.children).indexOf(songElement);
+        playSong(songIndex);
+        currentPlayingSongIndex++;
+      } else {
+        currentPlayingSongIndex = 0;
+        playNextShuffledSong(); // Loop back to the first song in the shuffled playlist
+      }
+    }
+  }
+
+  function shuffle(array) {
+    var currentIndex = array.length,
+      temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
     }
 
-    function unlikeSong(index) {
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-      likedSongs.splice(index, 1);
-      localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
-      renderSongs();
-    }
+    return array;
+  }
 
-    function shufflePlaylist() {
-      var items = Array.from(songListContainer.children);
-      var shuffledPlaylist = shuffle(items);
-      currentPlayingSongIndex = 0;
-      playNextShuffledSong(shuffledPlaylist);
-    }
+  function playSong(index) {
+    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    var song = likedSongs[index];
+    audioPlayer.src = song.src; // Assuming each song object has a 'src' attribute
+    audioPlayer.play();
+    currentPlayingSongIndex = index;
+  }
 
-
-    function playNextShuffledSong(shuffledPlaylist) {
+  window.addEventListener('DOMContentLoaded', function () {
+    renderSongs();
+    shuffleButton.addEventListener('click', function () {
+      shufflePlaylist();
+    });
+    audioPlayer.addEventListener('ended', function () {
       if (shuffledPlaylist.length > 0) {
-        if (currentPlayingSongIndex < shuffledPlaylist.length) {
-          var songElement = shuffledPlaylist[currentPlayingSongIndex];
-          var songIndex = Array.from(songListContainer.children).indexOf(songElement);
-          playSong(songIndex);
-          currentPlayingSongIndex++;
-        } else {
-          audioPlayer.pause();
+        playNextShuffledSong(); // Play the next song in the shuffled playlist
+      } else {
+        currentPlayingSongIndex++;
+        if (currentPlayingSongIndex < JSON.parse(localStorage.getItem('likedSongs')).length) {
+          playSong(currentPlayingSongIndex); // Play the next song in the original order
         }
       }
-    }
-
-    function shuffle(array) {
-      var currentIndex = array.length,
-        temporaryValue, randomIndex;
-
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-
-      return array;
-    }
-
-
-    window.addEventListener('DOMContentLoaded', function() {
-      renderSongs();
-      shuffleButton.addEventListener('click', function() {
-        shufflePlaylist();
-      });
-      audioPlayer.addEventListener('ended', function() {
-        playNextShuffledSong(shuffledPlaylist);
-      });
     });
-  </script>
+  });
+</script>
+
 </body>
 
 </html>
