@@ -8,17 +8,27 @@
   <link rel="shortcut icon" href="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-logo-spotify-symbol-3.png" type="image/png">
   <link rel="stylesheet" href="stopify.css">
   <style>
-    #audioPlayer {
+    #audioPlayerContainer {
       color: white;
       position: fixed;
       width: 100%;
       bottom: 7%;
       left: 0;
       right: 0;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1px; /* Add padding for better appearance */
+      padding: 10px; /* Add padding for better appearance */
       box-sizing: border-box; /* Ensure padding is included in the width */
+      background-color: #333; /* Background color for visibility */
+    }
+
+    #audioPlayerImage {
+      width: 60px; /* Adjust as needed */
+      height: 60px; /* Adjust as needed */
+      border-radius: 5px;
+      margin-right: 10px;
+      display: none; /* Hidden by default */
     }
 
     audio::-webkit-media-controls-panel {
@@ -36,6 +46,17 @@
       cursor: pointer;
       color: white;
       font-size: 1.5em;
+    }
+    #audioPlayer {
+      color: white;
+      width: 100%;
+      bottom: 7%;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1px;
+      box-sizing: border-box;
     }
 
     .liked {
@@ -104,11 +125,9 @@
       <h2>Stopify Playlists</h2>
       <div class="list">
 
-
-
         <div class="playlist-container">
           <div class="row">
-
+        
 
 
 <br>
@@ -1203,15 +1222,12 @@
 
 
 
-  </div></div>
-  <div class="playlist-container">
-  <div class="row">			
-		
-		
-		
-
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="playlist-container">
+        <div class="row"></div>
+      </div>
 
       <div class="preview" style="opacity: 1; transition: opacity 2s ease-out;">
         <div class="text">
@@ -1223,179 +1239,192 @@
         </div>
       </div>
     </div>
-    <audio id="audioPlayer" controls></audio>
+    <div id="audioPlayerContainer">
+      <img id="audioPlayerImage" src="" alt="Song Image" />
+      <audio id="audioPlayer" controls></audio>
+    </div>
     <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
-<script>
-  var searchBar = document.getElementById('searchBar');
-  var searchIcon = document.getElementById('searchIcon');
-  var searchInput = document.getElementById('searchInput');
-  var items = document.querySelectorAll('.item');
-  var audioPlayer = document.getElementById('audioPlayer');
-  var shuffleButton = document.getElementById('shuffleButton');
-  var shuffledPlaylist = [];
-  var currentIndex = 0;
+    <script>
+      var searchBar = document.getElementById('searchBar');
+      var searchIcon = document.getElementById('searchIcon');
+      var searchInput = document.getElementById('searchInput');
+      var items = document.querySelectorAll('.item');
+      var audioPlayer = document.getElementById('audioPlayer');
+      var audioPlayerImage = document.getElementById('audioPlayerImage');
+      var shuffleButton = document.getElementById('shuffleButton');
+      var shuffledPlaylist = [];
+      var currentIndex = 0;
 
-  searchIcon.addEventListener('click', function() {
-    searchBar.classList.toggle('active');
-    searchInput.focus();
-    setSearchBarTimeout();
-  });
-
-  searchInput.addEventListener('focus', function() {
-    searchBar.classList.add('active');
-    setSearchBarTimeout();
-  });
-
-  function setSearchBarTimeout() {
-    setTimeout(function() {
-      searchBar.classList.remove('active');
-    }, 20000);
-  }
-
-  function search() {
-    var input, filter, list, title, txtValue;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    list = document.querySelector(".list");
-
-    // Clear the list
-    list.innerHTML = '';
-
-    // If search input is empty, repopulate the list with all items
-    if (filter.trim() === '') {
-      items.forEach(function(item) {
-        list.appendChild(item.cloneNode(true));
+      searchIcon.addEventListener('click', function () {
+        searchBar.classList.toggle('active');
+        searchInput.focus();
+        setSearchBarTimeout();
       });
-      setSearchBarTimeout();
-      return;
-    }
 
-    // Filter and add items to the list
-    for (var i = 0; i < items.length; i++) {
-      title = items[i].querySelector("h4");
-      txtValue = title.textContent || title.innerText;
+      searchInput.addEventListener('focus', function () {
+        searchBar.classList.add('active');
+        setSearchBarTimeout();
+      });
 
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        list.appendChild(items[i].cloneNode(true));
+      function setSearchBarTimeout() {
+        setTimeout(function () {
+          searchBar.classList.remove('active');
+        }, 20000);
       }
-    }
-    setSearchBarTimeout();
-  }
 
-  // Function to update like button states
-  function updateLikeButtons() {
-    var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
-    var likedTitles = likedSongs.map(song => song.title);
+      function search() {
+        var input, filter, list, title, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        list = document.querySelector(".list");
 
-    items.forEach(function(item) {
-      var title = item.getAttribute('data-title');
-      if (likedTitles.includes(title)) {
-        item.querySelector('.fa-heart').classList.add('liked');
-      } else {
-        item.querySelector('.fa-heart').classList.remove('liked');
+        // Clear the list
+        list.innerHTML = '';
+
+        // If search input is empty, repopulate the list with all items
+        if (filter.trim() === '') {
+          items.forEach(function (item) {
+            list.appendChild(item.cloneNode(true));
+          });
+          setSearchBarTimeout();
+          return;
+        }
+
+        // Filter and add items to the list
+        for (var i = 0; i < items.length; i++) {
+          title = items[i].querySelector("h4");
+          txtValue = title.textContent || title.innerText;
+
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            list.appendChild(items[i].cloneNode(true));
+          }
+        }
+        setSearchBarTimeout();
       }
-    });
-  }
 
-  // Event delegation to play songs
-  document.addEventListener('click', function(event) {
-    if (event.target && event.target.classList.contains('fa-play')) {
-      var song = event.target.parentNode.parentNode.getAttribute('data-src');
-      if (song) {
-        audioPlayer.src = song;
-        audioPlayer.play();
-        audioPlayer.style.display = 'block'; // Show the audio player
+      // Function to update like button states
+      function updateLikeButtons() {
+        var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+        var likedTitles = likedSongs.map(song => song.title);
+
+        items.forEach(function (item) {
+          var title = item.getAttribute('data-title');
+          if (likedTitles.includes(title)) {
+            item.querySelector('.fa-heart').classList.add('liked');
+          } else {
+            item.querySelector('.fa-heart').classList.remove('liked');
+          }
+        });
       }
-    } else if (event.target && event.target.classList.contains('fa-heart')) {
-      var item = event.target.parentNode.parentNode;
-      var title = item.getAttribute('data-title');
-      var artist = item.getAttribute('data-artist');
-      var image = item.getAttribute('data-image');
-      var src = item.getAttribute('data-src');
 
-      // Get existing liked songs from localStorage
-      var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+      // Event delegation to play songs
+      document.addEventListener('click', function (event) {
+        if (event.target && event.target.classList.contains('fa-play')) {
+          var item = event.target.parentNode.parentNode;
+          var song = item.getAttribute('data-src');
+          var image = item.getAttribute('data-image');
 
-      // Check if the song is already liked
-      var isLiked = likedSongs.some(song => song.title === title);
+          if (song) {
+            audioPlayer.src = song;
+            audioPlayerImage.src = image; // Update the song image
+            audioPlayerImage.style.display = 'block'; // Show the image
+            audioPlayer.play();
+            audioPlayer.style.display = 'block'; // Show the audio player
+          }
+        } else if (event.target && event.target.classList.contains('fa-heart')) {
+          var item = event.target.parentNode.parentNode;
+          var title = item.getAttribute('data-title');
+          var artist = item.getAttribute('data-artist');
+          var image = item.getAttribute('data-image');
+          var src = item.getAttribute('data-src');
 
-      if (isLiked) {
-        // Remove the song from liked songs
-        likedSongs = likedSongs.filter(song => song.title !== title);
-        localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
-        event.target.classList.remove('liked');
-      } else {
-        // Add the song to liked songs
-        likedSongs.push({ title, artist, image, src });
-        localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
-        event.target.classList.add('liked');
+          // Get existing liked songs from localStorage
+          var likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+
+          // Check if the song is already liked
+          var isLiked = likedSongs.some(song => song.title === title);
+
+          if (isLiked) {
+            // Remove the song from liked songs
+            likedSongs = likedSongs.filter(song => song.title !== title);
+            localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+            event.target.classList.remove('liked');
+          } else {
+            // Add the song to liked songs
+            likedSongs.push({ title, artist, image, src });
+            localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+            event.target.classList.add('liked');
+          }
+        }
+      });
+
+      // Shuffle playlist
+      function shufflePlaylist() {
+        shuffledPlaylist = shuffle(Array.from(items));
+        currentIndex = 0; // Reset current index
+        playNextShuffledSong();
       }
-    }
-  });
 
-  // Shuffle playlist
-  function shufflePlaylist() {
-    shuffledPlaylist = shuffle(Array.from(items));
-    currentIndex = 0; // Reset current index
-    playNextShuffledSong();
-  }
-
-  // Play the next shuffled song
-  function playNextShuffledSong() {
-    if (shuffledPlaylist.length > 0) {
-      if (currentIndex < shuffledPlaylist.length) {
-        audioPlayer.src = shuffledPlaylist[currentIndex].getAttribute('data-src');
-        audioPlayer.play();
-        currentIndex++;
-      } else {
-        // Playlist has ended, stop playing
-        audioPlayer.pause();
+      // Play the next shuffled song
+      function playNextShuffledSong() {
+        if (shuffledPlaylist.length > 0) {
+          if (currentIndex < shuffledPlaylist.length) {
+            var item = shuffledPlaylist[currentIndex];
+            audioPlayer.src = item.getAttribute('data-src');
+            audioPlayerImage.src = item.getAttribute('data-image'); // Update the song image
+            audioPlayerImage.style.display = 'block'; // Show the image
+            audioPlayer.play();
+            currentIndex++;
+          } else {
+            // Playlist has ended, stop playing
+            audioPlayer.pause();
+            audioPlayerImage.style.display = 'none'; // Hide the image
+          }
+        }
       }
-    }
-  }
 
-  // Shuffle algorithm
-  function shuffle(array) {
-    var currentIndex = array.length,
-      temporaryValue, randomIndex;
+      // Shuffle algorithm
+      function shuffle(array) {
+        var currentIndex = array.length,
+          temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
 
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
 
-    return array;
-  }
+        return array;
+      }
 
-  // Initialize playlist on page load
-  window.addEventListener('DOMContentLoaded', function() {
-    shufflePlaylist(); // Initial shuffle
-    updateLikeButtons(); // Update like buttons based on localStorage
-  });
+      // Initialize playlist on page load
+      window.addEventListener('DOMContentLoaded', function () {
+        shufflePlaylist(); // Initial shuffle
+        updateLikeButtons(); // Update like buttons based on localStorage
+      });
 
-  // Play the next shuffled song when current song ends
-  audioPlayer.addEventListener('ended', function() {
-    playNextShuffledSong();
-  });
+      // Play the next shuffled song when current song ends
+      audioPlayer.addEventListener('ended', function () {
+        playNextShuffledSong();
+      });
 
-  window.addEventListener('DOMContentLoaded', (event) => {
-    setTimeout(() => {
-      const previewElement = document.querySelector('.preview');
-      previewElement.style.opacity = '0';
-      // To ensure the element does not take space and is not clickable after fading out
-      setTimeout(() => {
-        previewElement.style.display = 'none';
-      }, 2000); // Wait for the opacity transition to finish
-    }, 1000); // 10 seconds
-  });
-</script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        setTimeout(() => {
+          const previewElement = document.querySelector('.preview');
+          previewElement.style.opacity = '0';
+          // To ensure the element does not take space and is not clickable after fading out
+          setTimeout(() => {
+            previewElement.style.display = 'none';
+          }, 2000); // Wait for the opacity transition to finish
+        }, 1000); // 10 seconds
+      });
+    </script>
 </body>
 
 </html>
